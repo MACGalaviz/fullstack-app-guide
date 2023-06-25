@@ -51,13 +51,15 @@ class FetchComponent extends React.Component {
         <React.Fragment>
             <div>{this.state.text}</div>
             <button onClick={this.handleFetchData}>Fetch Data</button>
-            {this.state.data.map((element)=>{
-              console.log(element.data)
-              let item = JSON.parse(element.data)
-              console.log(item)
-              // return <div>{item["title"]}</div>
-              return <Card data={item}/>
-            })}
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexFlow: 'wrap'}}>
+              {this.state.data.map((element)=>{
+                console.log(element.data)
+                let item = JSON.parse(element.data)
+                console.log(item)
+                // return <div>{item["title"]}</div>
+                return <Card data={item}/>
+              })}
+            </div>
             <button onClick={this.handlePostData}>Post Data</button>
         </React.Fragment>
     );
