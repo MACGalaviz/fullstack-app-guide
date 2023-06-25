@@ -1,13 +1,30 @@
-// function FirstComponent({text}) {
-function Card(props) {
-    const { title, description, image } = props.data
-    
-    return (
-        <div style={{backgroundColor: 'grey'}}>
-          <p>{title}</p>
-          <p>{description}</p>
-          <img src={image} style={{width: 200, height: 100}}/>
-        </div>
-    );
+import * as React from 'react';
+import MUICard from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+
+export default function Card(props) {
+  const { title, description, image } = props.data
+  return (
+    <MUICard sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={image}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </MUICard>
+  );
 }
-export default Card;
